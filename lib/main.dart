@@ -15,15 +15,23 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFFB45210),
         appBarTheme: AppBarTheme(elevation: 0, color: Colors.white),
         textTheme: TextTheme(
+          title: TextStyle(
+            fontSize: 30,
+            color: Color(0xFF454544),
+            fontWeight: FontWeight.bold,
+          ),
           headline: TextStyle(
             fontSize: 22,
             color: Color(0xFF454544),
             fontWeight: FontWeight.bold,
           ),
           body1: TextStyle(
-            fontSize: 18,
+            fontSize: 20,
             color: Color(0xFF7F7F7D),
           ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
         ),
         fontFamily: 'Roboto',
       ),
