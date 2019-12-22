@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var checkBoxValue = false;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -31,23 +37,55 @@ class Home extends StatelessWidget {
                   Container(
                     height: height * .1,
                     width: width * .1,
-
                     child: FloatingActionButton(
                       elevation: 8,
                       child: Icon(Icons.add),
-                      onPressed: (){
-
+                      onPressed: () {
+                        print("Click on add button");
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (_, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          checkBoxValue = !checkBoxValue;
+                        });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                activeColor: Theme.of(context).primaryColor,
+                                value: checkBoxValue,
+                                onChanged: (value) {
+                                  value = checkBoxValue;
+                                },
+                              ),
+                              Text('Buy Coffee'),
+                            ],
+                          ),
+                          Text('08:00 AM')
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
+        onTap: (value) {},
         items: [
           BottomNavigationBarItem(
             icon: Icon(
