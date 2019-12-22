@@ -27,6 +27,9 @@ class _HomeState extends State<Home> {
                 color: Color(0xFF454544),
                 size: 24,
               ),
+              SizedBox(
+                height: height * 0.01,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -49,7 +52,8 @@ class _HomeState extends State<Home> {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  padding: EdgeInsets.zero,
+                  itemCount: 15,
                   itemBuilder: (_, index) {
                     return GestureDetector(
                       onTap: () {
@@ -62,17 +66,32 @@ class _HomeState extends State<Home> {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Checkbox(
-                                activeColor: Theme.of(context).primaryColor,
-                                value: checkBoxValue,
-                                onChanged: (value) {
-                                  value = checkBoxValue;
-                                },
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 12,
+                                  bottom: 12,
+                                ),
+                                child: SizedBox(
+                                  height: 24,
+                                  width: 24,
+                                  child: Checkbox(
+                                    activeColor: Theme.of(context).primaryColor,
+                                    value: checkBoxValue,
+                                    onChanged: (value) {
+                                      value = checkBoxValue;
+                                    },
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: width * 0.024,
                               ),
                               Text('Buy Coffee'),
                             ],
                           ),
-                          Text('08:00 AM')
+                          Text(
+                            '08:00 AM',
+                          ),
                         ],
                       ),
                     );
