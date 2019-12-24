@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projet_1/screens/add_task_screen/add_task_screen.dart';
 import 'package:projet_1/screens/home_screen/home_screen.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -26,17 +26,23 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           body1: TextStyle(
-              fontSize: 16,
-              color: Color(0xFF454544),
-              fontWeight: FontWeight.w500),
+            fontSize: 16,
+            color: Color(0xFF454544),
+            fontWeight: FontWeight.w500,
+          ),
         ),
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
         fontFamily: 'Roboto',
-        unselectedWidgetColor: Color(0xFFB45210).withOpacity(.5),
+        unselectedWidgetColor: Color(0xFFB45210).withOpacity(.3),
       ),
       home: Home(),
+      routes: {
+        '/': (context) => Home(),
+        AddTaskScreen.routeName: (context) => AddTaskScreen(),
+        
+      }
     );
   }
 }
